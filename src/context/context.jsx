@@ -5,6 +5,12 @@ const AppContext = React.createContext()
 
 const API_ENDPOINT = `https://opentdb.com/api.php?`
 
+const table = {
+  sports: 21,
+  history: 23,
+  politics: 24,
+}
+
 const url = ""
 // Reference URL
 const tempUrl =
@@ -18,6 +24,11 @@ const AppProvider = ({ children }) => {
   const [correct, setCorrect] = useState(0)
   const [error, setError] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
+  const [quiz, setQuiz] = useState({
+    amount: 10,
+    category: "sports",
+    difficulty: "easy",
+  })
 
   //Fetch questions from API
   const fetchQuestions = async (url) => {
@@ -71,9 +82,18 @@ const AppProvider = ({ children }) => {
     setIsModalOpen(false)
   }
 
-  useEffect(() => {
-    fetchQuestions(tempUrl)
-  }, [])
+  const handleChange = (e) => {
+    const name = e.target.name
+    const value = e.target.value
+    setQuiz({ ...quiz, [name]: value })
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const { amount, category, difficulty } = quiz
+    const url = `${API_ENDPOINT}amount=${amount}&category=${table[category]}&difficulty=${difficulty}&type=multiple`
+    fetchQuestions(url)
+  }
 
   return (
     <AppContext.Provider
@@ -89,6 +109,9 @@ const AppProvider = ({ children }) => {
         openModal,
         closeModal,
         isModalOpen,
+        handleChange,
+        handleSubmit,
+        quiz,
       }}
     >
       {children}
