@@ -30,9 +30,12 @@ function App() {
       <main className="h-screen  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex justify-center items-center ">
         <Modal />
         <section className="bg-white w-11/12 lg:max-w-3xl py-10 px-8 space-y-6 rounded-2xl shadow-md">
-          <p className="text-right text-green-500 tracking-wider">
-            Correct Answers: {correct} / {index + 1}
-          </p>
+          <div className="text-right text-green-500 tracking-wider space-y-2">
+            <p className="text-black">Total Questions: {questions.length} </p>
+            <p className="">
+              Correct Answers: {correct} / {index + 1}
+            </p>
+          </div>
           <article className="flex flex-col justify-center items-center space-y-6">
             <h2
               className="text-2xl md:text-3xl font-semibold w-full text-center"
