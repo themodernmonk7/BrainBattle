@@ -1,11 +1,25 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useState } from "react"
 import axios from "axios"
-
 const AppContext = React.createContext()
 
 const API_ENDPOINT = `https://opentdb.com/api.php?`
 
+// Category with their ID
 const table = {
+  generalKnowledge: 9,
+  Computers: 18,
+  Mathematics: 19,
+  Geography: 22,
+  Art: 25,
+  Animals: 27,
+  VideoGames: 15,
+  Mythology: 20,
+  Celebrities: 26,
+  Vehicles: 28,
+  Gadgets: 30,
+  Books: 10,
+  Film: 11,
+  Music: 12,
   sports: 21,
   history: 23,
   politics: 24,
@@ -110,6 +124,7 @@ const AppProvider = ({ children }) => {
         handleChange,
         handleSubmit,
         quiz,
+        table,
       }}
     >
       {children}
