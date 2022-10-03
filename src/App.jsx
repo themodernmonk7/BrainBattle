@@ -1,4 +1,20 @@
+import SetupForm from "./components/SetupForm"
+import Loading from "./components/Loading"
+import { useGlobalContext } from "./context/context"
+
 function App() {
+  const { waiting, loading, questions, index, correct } = useGlobalContext()
+
+  if (waiting) {
+    return (
+      <main className="h-screen  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex justify-center items-center ">
+        <SetupForm />
+      </main>
+    )
+  }
+
+  if (loading) return <Loading />
+
   return (
     <>
       <main className="h-screen  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex justify-center items-center ">

@@ -1,4 +1,5 @@
-import React, { useContext, useState } from "react"
+import React, { useContext, useEffect, useState } from "react"
+import axios from "axios"
 
 const AppContext = React.createContext()
 
@@ -17,6 +18,33 @@ const AppProvider = ({ children }) => {
   const [correct, setCorrect] = useState(0)
   const [error, setError] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
+
+  //Fetch questions from API
+  const fetchQuestions = async (url) => {
+    setLoading(true)
+    setWaiting(false)
+    const response = await axios(url).catch((err) => console.log(error))
+    if (response) {
+      const data = response.data.results
+      if (data.length > 0) {
+        setQuestions(data)
+        setLoading(false)
+        setWaiting(false)
+        setError(false)
+      } else {
+        setWaiting(true)
+        setError(true)
+      }
+    } else {
+      setWaiting(true)
+    }
+    setLoading(false)
+    setWaiting(false)
+  }
+
+  useEffect(() => {
+    fetchQuestions(tempUrl)
+  }, [])
 
   return (
     <AppContext.Provider
