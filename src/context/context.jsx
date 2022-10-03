@@ -46,7 +46,7 @@ const AppProvider = ({ children }) => {
     setIndex((oldIndex) => {
       const index = oldIndex + 1
       if (index > questions.length - 1) {
-        // show modal
+        openModal()
         return 0
       } else {
         return index
@@ -54,33 +54,46 @@ const AppProvider = ({ children }) => {
     })
   }
 
-    const checkAnswer = (value) => {
-      if (value) {
-        setCorrect((oldState) => oldState + 1)
-      }
-      nextQuestion()
+  const checkAnswer = (value) => {
+    if (value) {
+      setCorrect((oldState) => oldState + 1)
     }
+    nextQuestion()
+  }
 
-    useEffect(() => {
-      fetchQuestions(tempUrl)
-    }, [])
+  const openModal = () => {
+    setIsModalOpen(true)
+  }
 
-    return (
-      <AppContext.Provider
-        value={{
-          waiting,
-          loading,
-          questions,
-          index,
-          correct,
-          error,
-          nextQuestion,
-          checkAnswer,
-        }}
-      >
-        {children}
-      </AppContext.Provider>
-    )
+  const closeModal = () => {
+    setWaiting(true)
+    setCorrect(0)
+    setIsModalOpen(false)
+  }
+
+  useEffect(() => {
+    fetchQuestions(tempUrl)
+  }, [])
+
+  return (
+    <AppContext.Provider
+      value={{
+        waiting,
+        loading,
+        questions,
+        index,
+        correct,
+        error,
+        nextQuestion,
+        checkAnswer,
+        openModal,
+        closeModal,
+        isModalOpen,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+  )
 }
 
 // custom hook

@@ -1,6 +1,7 @@
 import SetupForm from "./components/SetupForm"
 import Loading from "./components/Loading"
 import { useGlobalContext } from "./context/context"
+import Modal from "./components/Modal"
 
 function App() {
   const {
@@ -27,6 +28,7 @@ function App() {
   return (
     <>
       <main className="h-screen  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex justify-center items-center ">
+        <Modal />
         <section className="bg-white w-11/12 lg:max-w-3xl py-10 px-8 space-y-6 rounded-2xl shadow-md">
           <p className="text-right text-green-500 tracking-wider">
             Correct Answers: {correct} / {index + 1}
