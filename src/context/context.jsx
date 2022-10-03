@@ -54,25 +54,33 @@ const AppProvider = ({ children }) => {
     })
   }
 
-  useEffect(() => {
-    fetchQuestions(tempUrl)
-  }, [])
+    const checkAnswer = (value) => {
+      if (value) {
+        setCorrect((oldState) => oldState + 1)
+      }
+      nextQuestion()
+    }
 
-  return (
-    <AppContext.Provider
-      value={{
-        waiting,
-        loading,
-        questions,
-        index,
-        correct,
-        error,
-        nextQuestion,
-      }}
-    >
-      {children}
-    </AppContext.Provider>
-  )
+    useEffect(() => {
+      fetchQuestions(tempUrl)
+    }, [])
+
+    return (
+      <AppContext.Provider
+        value={{
+          waiting,
+          loading,
+          questions,
+          index,
+          correct,
+          error,
+          nextQuestion,
+          checkAnswer,
+        }}
+      >
+        {children}
+      </AppContext.Provider>
+    )
 }
 
 // custom hook

@@ -3,8 +3,15 @@ import Loading from "./components/Loading"
 import { useGlobalContext } from "./context/context"
 
 function App() {
-  const { waiting, loading, questions, index, correct, nextQuestion } =
-    useGlobalContext()
+  const {
+    waiting,
+    loading,
+    questions,
+    index,
+    correct,
+    nextQuestion,
+    checkAnswer,
+  } = useGlobalContext()
   if (waiting) {
     return (
       <main className="h-screen  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex justify-center items-center ">
@@ -36,6 +43,7 @@ function App() {
                     key={index}
                     className="bg-indigo-500 tracking-wider py-2 text-white"
                     dangerouslySetInnerHTML={{ __html: answer }}
+                    onClick={() => checkAnswer(answer === correct_answer)}
                   />
                 )
               })}
