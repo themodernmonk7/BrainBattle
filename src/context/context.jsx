@@ -49,8 +49,6 @@ const AppProvider = ({ children }) => {
     } else {
       setWaiting(true)
     }
-    setLoading(false)
-    setWaiting(false)
   }
 
   const nextQuestion = () => {
