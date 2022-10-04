@@ -6,9 +6,11 @@ const SetupForm = () => {
   const { amount, category, difficulty } = quiz
   return (
     <>
-      <section className=" bg-white xl:max-w-xl rounded-xl md:w-1/2 p-8 flex flex-col justify-center space-y-14 ">
+      <section className=" bg-white rounded-xl w-1/2  p-8 flex flex-col justify-center space-y-14 ">
         <form className="space-y-4 text-xl">
-          <h2 className="text-center text-3xl">Setup Quiz</h2>
+          <h2 className="text-center text-3xl font-bold text-gray-600 tracking-wider">
+            Quizology
+          </h2>
 
           <div className="flex flex-col space-y-2">
             <label htmlFor="amount">Number of Questions</label>
