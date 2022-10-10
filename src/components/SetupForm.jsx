@@ -6,9 +6,9 @@ const SetupForm = () => {
   const { amount, category, difficulty } = quiz
   return (
     <>
-      <section className=" bg-white rounded-xl w-1/2  p-8 flex flex-col justify-center space-y-14 ">
+      <section className=" flex w-11/12 flex-col  justify-center space-y-12 rounded-xl bg-white p-8 md:w-10/12 lg:w-1/2 xl:w-1/3 ">
         <form className="space-y-4 text-xl">
-          <h2 className="text-center text-3xl font-bold text-gray-600 tracking-wider">
+          <h2 className="text-center text-3xl font-bold tracking-wider text-gray-600">
             Quizology
           </h2>
 
@@ -20,7 +20,7 @@ const SetupForm = () => {
               type="number"
               value={amount}
               onChange={handleChange}
-              className="py-4 px-4 border-2 rounded-2xl focus: outline-none focus:border-indigo-500 focus:ring-indigo-500 focus:ring-1 hover:shadow-inner"
+              className=" rounded-md border-2 py-2 px-4 outline-none hover:shadow-inner focus:border-indigo-500 focus:bg-indigo-200/50 focus:ring-1 focus:ring-indigo-500"
             />
           </div>
 
@@ -31,7 +31,7 @@ const SetupForm = () => {
               id="category"
               value={category}
               onChange={handleChange}
-              className="py-4 px-4 border-2 rounded-2xl focus: outline-none focus:border-indigo-500 focus:ring-indigo-500 focus:ring-1 hover:shadow-inner"
+              className=" rounded-md  border-2 py-2 px-4 outline-none hover:shadow-inner focus:border-indigo-500 focus:bg-indigo-200/50 focus:ring-1 focus:ring-indigo-500"
             >
               <option value="sports">sports</option>
               <option value="history">history</option>
@@ -46,7 +46,7 @@ const SetupForm = () => {
               id="difficulty"
               value={difficulty}
               onChange={handleChange}
-              className="py-4 px-4 border-2 rounded-2xl focus: outline-none focus:border-indigo-500 focus:ring-indigo-500 focus:ring-1 hover:shadow-inner"
+              className="rounded-md border-2  py-2 px-4 outline-none hover:shadow-inner focus:border-indigo-500 focus:bg-indigo-200/50 focus:ring-1 focus:ring-indigo-500"
             >
               <option value="easy">easy</option>
               <option value="medium">medium</option>
@@ -60,7 +60,7 @@ const SetupForm = () => {
           )}
         </form>
         <button
-          className=" px-4 py-4 bg-indigo-600 text-white tracking-wider rounded-2xl shadow-lg focus:outline-none"
+          className=" rounded-md bg-indigo-600 px-4 py-2 tracking-wider text-white shadow-xl focus:outline-none"
           onClick={handleSubmit}
         >
           Play

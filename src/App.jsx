@@ -15,7 +15,7 @@ function App() {
   } = useGlobalContext()
   if (waiting) {
     return (
-      <main className="h-screen  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex justify-center items-center ">
+      <main className=" flex h-screen  items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500 py-10 ">
         <SetupForm />
       </main>
     )
@@ -27,26 +27,26 @@ function App() {
   const answers = [...incorrect_answers, correct_answer]
   return (
     <>
-      <main className="h-screen  bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex justify-center items-center ">
+      <main className="flex  h-screen items-center justify-center bg-gradient-to-r from-cyan-500 to-blue-500 ">
         <Modal />
-        <section className="bg-white w-11/12 lg:max-w-3xl py-10 px-8 space-y-6 rounded-2xl shadow-md">
-          <div className="text-right text-green-500 tracking-wider space-y-2">
+        <section className=" w-11/12 space-y-10 rounded-2xl border bg-white py-10 px-8 shadow-md  lg:max-w-3xl lg:space-y-4 xl:space-y-10">
+          <div className="space-y-2 text-right tracking-wider text-green-500">
             <p className="text-black">Total Questions: {questions.length} </p>
             <p className="">
               Correct Answers: {correct} / {index + 1}
             </p>
           </div>
-          <article className="flex flex-col justify-center items-center space-y-6">
+          <article className="flex w-full flex-col items-center  justify-center space-y-8">
             <h2
-              className="text-2xl md:text-3xl font-semibold w-full text-center"
+              className="w-full text-center text-2xl font-semibold md:text-3xl"
               dangerouslySetInnerHTML={{ __html: question }}
             />
-            <div className="flex flex-col space-y-4 w-2/3">
+            <div className="flex w-2/3 flex-col space-y-4">
               {answers.map((answer, index) => {
                 return (
                   <button
                     key={index}
-                    className="bg-indigo-500 tracking-wider py-2 text-white"
+                    className="bg-indigo-500 py-2 tracking-wider text-white"
                     dangerouslySetInnerHTML={{ __html: answer }}
                     onClick={() => checkAnswer(answer === correct_answer)}
                   />
@@ -55,7 +55,7 @@ function App() {
             </div>
           </article>
           <button
-            className="block ml-auto px-4 py-2 bg-indigo-600 text-white tracking-wider rounded shadow-lg focus:outline-none"
+            className="ml-auto block rounded bg-slate-700 px-4 py-2 tracking-wider text-white shadow-lg focus:outline-none md:px-8"
             onClick={nextQuestion}
           >
             Next Question
