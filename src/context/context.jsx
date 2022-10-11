@@ -25,10 +25,10 @@ const table = {
   politics: 24,
 }
 
-const url = ""
+// const url = ""
 // Reference URL
-const tempUrl =
-  "https://opentdb.com/api.php?amount=10&category=22&difficulty=easy&type=multiple"
+// const tempUrl =
+//   "https://opentdb.com/api.php?amount=10&category=22&difficulty=easy&type=multiple"
 
 const AppProvider = ({ children }) => {
   const [waiting, setWaiting] = useState(true)

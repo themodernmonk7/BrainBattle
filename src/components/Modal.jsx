@@ -2,8 +2,7 @@ import React from "react"
 import { useGlobalContext } from "../context/context"
 
 const Modal = () => {
-  const { openModal, closeModal, isModalOpen, correct, questions } =
-    useGlobalContext()
+  const { closeModal, isModalOpen, correct, questions } = useGlobalContext()
   return (
     <>
       <main
