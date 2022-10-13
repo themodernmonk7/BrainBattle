@@ -8,9 +8,7 @@ const SetupForm = () => {
     <>
       <section className=" flex w-11/12 flex-col  justify-center space-y-12 rounded-xl bg-white p-8 md:w-10/12 lg:w-1/2 xl:w-1/3 ">
         <form className="space-y-4 text-xl">
-          <h2 className="text-center text-3xl font-bold tracking-wider text-gray-600">
-            Quizology
-          </h2>
+          <h2 className="text-center text-3xl font-bold tracking-wider text-gray-600"></h2>
 
           <div className="flex flex-col space-y-2">
             <label htmlFor="amount">Number of Questions</label>
